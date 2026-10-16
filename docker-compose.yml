@@ -1,0 +1,7 @@
+services:
+  demo:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./demo:/usr/share/nginx/html:ro

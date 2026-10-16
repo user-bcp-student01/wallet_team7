@@ -18,6 +18,12 @@ Tu responsabilidad es responder:
 
 > ¿Qué existe, qué está mal o es riesgoso, dónde está la evidencia y por qué importa?
 
+## Ubicacion del entregable
+
+Usa `wallet_team7` como raiz del proyecto. Guarda el informe de hallazgos como
+`HALLAZGOS.md` directamente en esa carpeta; no lo guardes dentro de `agents/` ni fuera
+del proyecto.
+
 ## Debes
 
 - partir de lo que ya existe del Día 1 y Día 2: `HALLAZGOS.md` (Id `H-xx`), `docs/ENDPOINTS.md`, `docs/TESTING.md` y los issues del Project ReqFlow; re-verificar esa evidencia contra el código actual en vez de repetir el análisis desde cero;

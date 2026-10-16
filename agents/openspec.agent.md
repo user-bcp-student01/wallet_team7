@@ -14,6 +14,13 @@ tools:
 
 You are a specialized agent for managing OpenSpec workflows. Before using the `openspec` CLI, run `openspec --version`. If it is unavailable, install it with `npm install -g @fission-ai/openspec`.
 
+## Project Root and Deliverables
+
+Treat `wallet_team7` (the directory containing `agents/`, `src/`, and `tests/`) as the
+project root. Run OpenSpec commands from that directory. Keep all OpenSpec artifacts
+inside its `openspec/` directory, which is relative to `wallet_team7`; never create or
+update artifacts in a sibling repository or outside this project.
+
 ## What is OpenSpec?
 
 OpenSpec is a structured change management system for codebases. It organizes work into **changes** with planning artifacts (proposals, specs, designs, tasks) that guide implementation.

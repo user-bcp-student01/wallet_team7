@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototipo: alta rápida con celular y código</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #eef1f5; color: #1a1f2b; padding: 40px 20px; }
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { font-size: 24px; margin-bottom: 8px; }
+    header p { color: #5b6476; font-size: 14px; }
+    .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; }
+    .item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .label { font-size: 14px; font-weight: 600; color: #3a4256; }
+    .phone { width: 300px; height: 620px; background: #111; border-radius: 36px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    .screen { background: #fff; border-radius: 26px; height: 100%; padding: 24px 20px; display: flex; flex-direction: column; }
+    .top { font-size: 22px; color: #1a1f2b; height: 24px; }
+    .title { font-size: 22px; font-weight: 700; margin-top: 16px; }
+    .sub { font-size: 14px; color: #5b6476; margin-top: 6px; line-height: 1.4; }
+    .btn { width: 100%; border: none; border-radius: 14px; padding: 14px; font-size: 16px; font-weight: 600; background: #0b5cff; color: #fff; cursor: pointer; margin-top: auto; }
+    .btn:disabled { background: #c9d3e3; color: #6b7587; cursor: not-allowed; }
+    .btn-link { background: none; color: #0b5cff; font-size: 14px; font-weight: 600; margin-top: 12px; text-align: center; width: 100%; }
+    .center { justify-content: center; align-items: stretch; }
+    .logo { width: 72px; height: 72px; border-radius: 50%; background: #0b5cff; margin: 0 auto 24px; }
+    .hero { text-align: center; }
+    .hero .title { margin-top: 0; font-size: 24px; }
+    .hero .sub { font-size: 15px; }
+    .phone-row { display: flex; gap: 8px; margin-top: 28px; }
+    .prefix { border: 1.5px solid #d6dce8; border-radius: 12px; padding: 14px 10px; font-size: 16px; font-weight: 600; }
+    .input { flex: 1; border: 1.5px solid #0b5cff; border-radius: 12px; padding: 14px; font-size: 18px; letter-spacing: 1px; outline: none; width: 100%; }
+    .check { display: flex; gap: 10px; margin-top: 20px; font-size: 13px; color: #3a4256; line-height: 1.4; }
+    .check input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; }
+    .check a { color: #0b5cff; }
+    .otp-row { display: flex; gap: 6px; margin-top: 28px; justify-content: space-between; }
+    .otp { width: 40px; height: 52px; border: 1.5px solid #d6dce8; border-radius: 12px; text-align: center; font-size: 22px; font-weight: 600; outline: none; }
+    .otp:focus { border-color: #0b5cff; }
+    .error { color: #d62b2b; font-size: 13px; margin-top: 12px; }
+    .muted { color: #5b6476; font-size: 13px; margin-top: 16px; text-align: center; }
+    .pin-label { font-size: 14px; font-weight: 600; margin-top: 28px; color: #3a4256; }
+    .done { width: 88px; height: 88px; border-radius: 50%; background: #e6f7ec; color: #1f9d55; font-size: 44px; display: flex; align-items: center; justify-content: center; margin: 40px auto 24px; }
+    .limit { background: #f3f6fb; border-radius: 14px; padding: 14px; margin-top: 20px; text-align: center; font-size: 14px; color: #3a4256; }
+    .limit strong { display: block; font-size: 20px; color: #1a1f2b; margin-top: 4px; }
+    .banner { border: 1.5px dashed #0b5cff; border-radius: 14px; padding: 14px; margin-top: 16px; font-size: 13px; color: #0b5cff; font-weight: 600; }
+    .note { font-size: 11px; color: #7a8396; text-align: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prototipo: alta rápida con celular y código</h1>
+    <p>Pantallas del punto 1 del onboarding. Propuesta para validación con producto y compliance.</p>
+  </header>
+
+  <main class="grid">
+
+    <!-- 1. Bienvenida -->
+    <section class="item">
+      <span class="label">1. Bienvenida</span>
+      <div class="phone">
+        <div class="screen center">
+          <div class="hero">
+            <div class="logo"></div>
+            <div class="title">Paga y cobra en segundos con tu celular</div>
+            <div class="sub">Crea tu wallet en menos de 3 minutos.</div>
+          </div>
+          <button class="btn" style="margin-top: 32px;">Crear mi wallet</button>
+          <button class="btn-link">Ya tengo cuenta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Celular y términos -->
+    <section class="item">
+      <span class="label">2. Número de celular</span>
+      <div class="phone">
+        <div class="screen">
+          <div class="top">&larr;</div>
+          <div class="title">Tu número de celular</div>
+          <div class="sub">Te enviaremos un código por SMS.</div>
+          <div class="phone-row">
+            <div class="prefix">+51</div>
+            <input class="input" id="phone" type="tel" inputmode="numeric" maxlength="11" placeholder="9XX XXX XXX" autocomplete="tel-national">
+          </div>
+          <label class="check">
+            <input type="checkbox" id="terms">
+            <span>Acepto los <a href="#">términos</a> y la <a href="#">política de datos</a></span>
+          </label>
+          <button class="btn" id="btnPhone" disabled style="margin-top: auto;">Continuar</button>
+          <div class="note">Se activa al completar 9 dígitos y aceptar términos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Código SMS -->
+    <section class="item">
+      <span class="label">3. Código SMS</span>
+      <div class="phone">
+        <div class="screen">
+          <div class="top">&larr;</div>
+          <div class="title">Ingresa el código</div>
+          <div class="sub">Enviado al 9XX XXX 123</div>
+          <div class="otp-row" id="otpRow">
+            <input class="otp" maxlength="1" inputmode="numeric" autocomplete="one-time-code" aria-label="Dígito 1">
+            <input class="otp" maxlength="1" inputmode="numeric" aria-label="Dígito 2">
+            <input class="otp" maxlength="1" inputmode="numeric" aria-label="Dígito 3">
+            <input class="otp" maxlength="1" inputmode="numeric" aria-label="Dígito 4">
+            <input class="otp" maxlength="1" inputmode="numeric" aria-label="Dígito 5">
+            <input class="otp" maxlength="1" inputmode="numeric" aria-label="Dígito 6">
+          </div>
+          <div class="error">Código incorrecto. Te quedan 2 intentos.</div>
+          <div class="muted" id="resend">Reenviar en <span id="timer">30</span> s</div>
+          <button class="btn-link" style="margin-top: auto;">Cambiar número</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Crear PIN -->
+    <section class="item">
+      <span class="label">4. Crear PIN</span>
+      <div class="phone">
+        <div class="screen">
+          <div class="top">&larr;</div>
+          <div class="title">Crea tu PIN de 6 dígitos</div>
+          <div class="sub">Lo usarás para autorizar pagos.</div>
+          <div class="pin-label">PIN</div>
+          <div class="otp-row" id="pinRow">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 1">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 2">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 3">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 4">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 5">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="PIN dígito 6">
+          </div>
+          <div class="pin-label">Confirma tu PIN</div>
+          <div class="otp-row" id="confirmRow">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 1">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 2">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 3">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 4">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 5">
+            <input class="otp" type="password" maxlength="1" inputmode="numeric" aria-label="Confirmación dígito 6">
+          </div>
+          <div class="error" id="pinError" hidden></div>
+          <div class="note">No uses series como 123456 ni 111111</div>
+          <button class="btn" id="btnPin" disabled style="margin-top: auto;">Activar wallet</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Listo -->
+    <section class="item">
+      <span class="label">5. Cuenta lista</span>
+      <div class="phone">
+        <div class="screen">
+          <div class="done">&#10003;</div>
+          <div class="title" style="text-align:center;">Tu wallet está lista</div>
+          <div class="limit">
+            Límite diario actual
+            <strong>PEN 300</strong>
+          </div>
+          <button class="btn" style="margin-top: 24px;">Hacer mi primer pago</button>
+          <div class="banner">Verifica tu DNI para subir tu límite &rsaquo;</div>
+          <div class="note">Monto de límite de ejemplo; compliance debe confirmarlo</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Pantalla 2: habilita el botón con 9 dígitos y términos aceptados
+    const phone = document.getElementById('phone');
+    const terms = document.getElementById('terms');
+    const btnPhone = document.getElementById('btnPhone');
+    function updatePhoneButton() {
+      phone.value = phone.value.replace(/\D/g, '').slice(0, 9);
+      btnPhone.disabled = !(phone.value.length === 9 && terms.checked);
+    }
+    phone.addEventListener('input', updatePhoneButton);
+    terms.addEventListener('change', updatePhoneButton);
+
+    // Pantalla 3: avance automático entre dígitos y retroceso con Backspace
+    function bindDigits(rowId, onChange) {
+      const inputs = Array.from(document.querySelectorAll('#' + rowId + ' .otp'));
+      inputs.forEach((input, i) => {
+        input.addEventListener('input', () => {
+          input.value = input.value.replace(/\D/g, '');
+          if (input.value && i < inputs.length - 1) inputs[i + 1].focus();
+          if (onChange) onChange();
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && i > 0) inputs[i - 1].focus();
+        });
+      });
+      return inputs;
+    }
+    bindDigits('otpRow');
+
+    // Pantalla 4: PIN de 6 dígitos con confirmación
+    const btnPin = document.getElementById('btnPin');
+    const pinError = document.getElementById('pinError');
+    const readPin = (inputs) => inputs.map(i => i.value).join('');
+    const isWeakPin = (pin) => {
+      if (/^(\d)\1{5}$/.test(pin)) return true;
+      return '0123456789'.includes(pin) || '9876543210'.includes(pin);
+    };
+    function updatePinButton() {
+      const pin = readPin(pinInputs);
+      const confirm = readPin(confirmInputs);
+      const complete = pin.length === 6 && confirm.length === 6;
+      let message = '';
+      if (complete && pin !== confirm) message = 'Los PIN no coinciden.';
+      else if (complete && isWeakPin(pin)) message = 'Elige un PIN menos predecible.';
+      pinError.textContent = message;
+      pinError.hidden = !message;
+      btnPin.disabled = !(complete && !message);
+    }
+    const pinInputs = bindDigits('pinRow', updatePinButton);
+    const confirmInputs = bindDigits('confirmRow', updatePinButton);
+    updatePinButton();
+
+    // Pantalla 3: temporizador de reenvío
+    let seconds = 30;
+    const timerEl = document.getElementById('timer');
+    const resendEl = document.getElementById('resend');
+    const countdown = setInterval(() => {
+      seconds--;
+      timerEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        resendEl.innerHTML = '<a href="#" style="color:#0b5cff;font-weight:600;text-decoration:none;">Reenviar código</a>';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

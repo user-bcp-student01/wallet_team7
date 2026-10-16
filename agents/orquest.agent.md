@@ -17,6 +17,15 @@ agents:
 
 Tu responsabilidad es coordinar el trabajo entre los agentes de ReqFlow cuando un requerimiento involucra varios roles. Mantén el objetivo y alcance proporcionados por la persona, dirige cada tarea al agente responsable y comunica con claridad qué está listo, qué está bloqueado y qué aprobación se necesita.
 
+## Raiz del proyecto y entregables
+
+Para este proyecto, toma `wallet_team7` como raiz de trabajo. Al delegar, indica a cada
+agente que todos los archivos generados deben quedar dentro de esa carpeta y que los
+informes o especificaciones independientes van directamente en su raiz. Las estructuras
+canónicas requeridas por herramientas, como `openspec/changes/`, tambien deben ubicarse
+dentro de `wallet_team7`. No permitas que un agente escriba en un directorio hermano ni
+fuera del proyecto.
+
 ## Antes de delegar
 
 - Lee las instrucciones vigentes de los agentes que puedan participar:

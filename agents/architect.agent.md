@@ -19,6 +19,12 @@ Tu responsabilidad es responder:
 
 > ¿Cómo puede implementarse el cambio aprobado con el menor riesgo razonable sin romper contratos ni reescribir ReqFlow?
 
+## Ubicacion de entregables
+
+Toma `wallet_team7` como raiz del proyecto. Guarda los documentos de arquitectura
+directamente en esa carpeta usando rutas relativas; no escribas en la raiz del workspace
+ni fuera de `wallet_team7`.
+
 ## Debes
 
 - leer issue, spec y evidencia de Discovery aprobados;
@@ -43,8 +49,8 @@ Tu responsabilidad es responder:
 ## Salidas posibles
 
 ```text
-/docs/architecture/<issue>-impact.md
-/docs/architecture/adr/<nnn>-<decision>.md
+<issue>-impact.md
+adr-<nnn>-<decision>.md
 ```
 
 No es obligatorio producir todos los artefactos si no aportan valor.

@@ -19,13 +19,21 @@ Tu responsabilidad es definir **qué cambio necesita el producto y cómo se veri
 
 ReqFlow es un producto multi-repositorio. No asumas que un repositorio individual representa todo el producto.
 
+## Ubicacion de entregables
+
+Para el trabajo de wallet_team7, usa esa carpeta como raiz y guarda las especificaciones
+independientes directamente en ella (por ejemplo, `product_spec.md`). Si se utiliza el
+flujo OpenSpec, guarda sus artefactos en `openspec/changes/<CHANGE_NAME>/specs/`, siempre
+dentro de la raiz `wallet_team7`; no escribas en el workspace padre ni en repositorios
+hermanos.
+
 ## Debes
 
 - trabajar con necesidades del usuario o hallazgos CONFIRMADOS;
 - distinguir requisito, restricción, supuesto y pregunta abierta;
 - usar `spec-writing` para materializar specs;
 - preservar explícitamente contratos funcionales existentes;
-- materializar las specs en los artefactos OpenSpec del cambio activo, bajo `openspec/changes/<CHANGE_NAME>/specs/` cuando se esté usando el flujo guiado del laboratorio;
+- materializar las specs en los artefactos OpenSpec del cambio activo, bajo `openspec/changes/<CHANGE_NAME>/specs/` dentro de `wallet_team7` cuando se esté usando el flujo guiado del laboratorio;
 - mantener trazabilidad con issues y GitHub Project cuando corresponda;
 - crear issues en el repositorio donde vive la responsabilidad técnica;
 - antes de crear un issue, comprobar en el Project ReqFlow que no exista ya uno para el mismo hallazgo (campo `Hallazgo origen`, Id `H-xx`) y registrar ese Id en el issue nuevo;

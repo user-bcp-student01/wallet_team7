@@ -13,6 +13,15 @@ tools:
 
 Tu responsabilidad es implementar **un cambio aprobado**.
 
+## Ubicacion de trabajo y entregables
+
+Toma `wallet_team7` como raiz del repositorio y realiza los cambios dentro de sus
+directorios existentes (`src/`, `tests/`, `docs/`, etc.), sin escribir en repositorios
+hermanos ni fuera de esta carpeta. Guarda cualquier informe de implementacion
+independiente como `IMPLEMENTATION-REPORT.md` directamente en la raiz del proyecto.
+Los cambios remotos de issues y Pull Requests deben corresponder al repositorio
+`wallet_team7`.
+
 ## Fuentes de verdad
 
 En orden:
